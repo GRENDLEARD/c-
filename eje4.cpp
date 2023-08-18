@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath> // Incluir la librería para funciones matemáticas
+#include <cmath> 
 
 using namespace std;
 
@@ -14,7 +14,7 @@ int main() {
 
 
     area = (trianguloAltura * trianguloBase) / 2;
-    // Mostrar resultados
+   
     
     cout << "El area del Triangulo es: " << area << endl;
 
