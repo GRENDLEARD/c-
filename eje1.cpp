@@ -11,7 +11,7 @@ int main() {
         cin >> radio;
 
         perimetro = 2 * PI * radio;
-            area = PI * pow(radio, 2); // Usar la función pow para elevar al cuadrado
+            area = PI * pow(radio, 2); 
 
     
         cout << "El perimetro del circulo es: " << perimetro << endl;
