@@ -4,34 +4,31 @@
 using namespace std;
 
 int main() {
-    double a, b, c;
-    cout << "Ingrese el coeficiente 'a': ";
+    double a, b, c,discriminante,solucion1,solucion2,solucion;
+
+    cout << "Ingrese el valor de a: ";
     cin >> a;
 
-    cout << "Ingrese el coeficiente 'b': ";
+    cout << "Ingrese el valor de b: ";
     cin >> b;
 
-    cout << "Ingrese el coeficiente 'c': ";
+    cout << "Ingrese el valor de c: ";
     cin >> c;
 
-    double discriminante = b * b - 4 * a * c;
+    // Calcula el discriminante
+    discriminante = b * b - 4 * a * c;
 
     if (discriminante > 0) {
-        double raiz1 = (-b + sqrt(discriminante)) / (2 * a);
-        double raiz2 = (-b - sqrt(discriminante)) / (2 * a);
-        cout << "Las soluciones son reales y diferentes:" << endl;
-        cout << "x1 = " << raiz1 << endl;
-        cout << "x2 = " << raiz2 << endl;
+        solucion1 = (-b + sqrt(discriminante)) / (2 * a);
+        solucion2 = (-b - sqrt(discriminante)) / (2 * a);
+
+        cout << "Las soluciones son: " << solucion1 << " y " << solucion2 << endl;
     } else if (discriminante == 0) {
-        double raiz = -b / (2 * a);
-        cout << "La solución es real y doble:" << endl;
-        cout << "x = " << raiz << endl;
+        solucion = -b / (2 * a);
+
+        cout << "La única solución es: " << solucion << endl;
     } else {
-        double parteReal = -b / (2 * a);
-        double parteImaginaria = sqrt(-discriminante) / (2 * a);
-        cout << "Las soluciones son complejas conjugadas:" << endl;
-        cout << "x1 = " << parteReal << " + " << parteImaginaria << "i" << endl;
-        cout << "x2 = " << parteReal << " - " << parteImaginaria << "i" << endl;
+        cout << "La ecuación no tiene soluciones reales." << endl;
     }
 
     return 0;
