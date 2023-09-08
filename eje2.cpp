@@ -1,25 +1,26 @@
 #include <iostream>
-#include <cmath> 
 
 using namespace std;
 
 int main() {
-    int numero1, numero2, numero3 , numero4, resultado;
+    int cantidad,vecesDivididas;
+    int denominaciones[] = {500, 200, 100, 50, 20, 10, 5, 2, 1};
 
-    cout<< "ingrese el primer numero: " << endl; 
-    cin>> numero1;
-    cout<< "ingrese el segundo numero: " << endl; 
-    cin>> numero2;
-    cout<< "ingrese el tercer numero: " << endl; 
-    cin>> numero3;
-    cout<< "ingrese el cuarti numero: " << endl; 
-    cin>> numero4;
-  
+    cout << "Introduce la cantidad en euros: ";
+    cin >> cantidad;
 
-    resultado = numero1 + numero2 + numero3 + numero4;
 
-    cout << "la suma de todos los numeros es:" << resultado << endl;
-   
+    for (int i = 0; i < 9; i++) {
+
+    vecesDivididas = cantidad / denominaciones[i]; // 543 / 500 = 1 | 43 / 20 = 2 |
+    cantidad = cantidad % denominaciones[i]; // 43 | 3 
+
+    // cout << cantidad << endl; 
+
+        if (vecesDivididas > 0) {
+            cout << vecesDivididas << " billete de: " << denominaciones[i] << " euros" << endl;
+        } 
+    }
 
     return 0;
 }
