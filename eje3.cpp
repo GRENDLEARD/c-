@@ -1,20 +1,30 @@
 #include <iostream>
 
+using namespace std;
+
 int main() {
-    double tarifaHoraria;
-    int horasDiarias;
+    int segundos, minutos, horas, dias;
+
+    cout << "Introduce una cantidad de segundos: ";
+    cin >> segundos;
 
 
-    std::cout << "Ingrese la tarifa horaria: ";
-    std::cin >> tarifaHoraria;
 
-    std::cout << "Ingrese el número de horas trabajadas diariamente: ";
-    std::cin >> horasDiarias;
+    segundos = segundos % (24 * 3600);   
 
-    double salarioSemanal = tarifaHoraria * horasDiarias; 
+    horas = segundos / 3600; 
 
-   
-    std::cout << "El salario semanal del trabajador es: " << salarioSemanal << " dinero." << std::endl;
+    segundos = segundos % 3600;
+
+    minutos = segundos / 60;  
+
+    segundos = segundos % 60;
+
+
+    cout << "Dias: " << dias << endl;
+    cout << "Horas: " << horas << endl;
+    cout << "Minutos: " << minutos << endl;
+    cout << "Segundos: " << segundos << endl;
 
     return 0;
 }
