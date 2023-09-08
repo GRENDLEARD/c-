@@ -1,22 +1,25 @@
 #include <iostream>
-#include <cmath> 
 
 using namespace std;
 
-int main() {
-    double trianguloAltura, trianguloBase, area;
+int main()
+{   
+    int numero1, numero2,numero3, producto;
 
-    cout<< "digite la altura del triangulo: " << endl;
-    cin>> trianguloAltura;
+    cout << "ingrese el primer numero: ";
+    cin >> numero1;
 
-     cout<< "digite la base del triangulo: " << endl;
-    cin>> trianguloBase;
+    cout << "ingrese el segundo numero: ";
+    cin >> numero2;
+    cout << "ingrese el tercero numero: ";
+    cin >> numero3;
 
-
-    area = (trianguloAltura * trianguloBase) / 2;
-   
+    if(numero1 >= 0) {
+       producto =  numero1 * numero2 * numero3 ;
+        cout << "el producto de los 3 numeros es: " << producto << endl;
+    } else {
+        cout << "la suma de los 3 numeros es: " << (numero1 + numero2 +  numero3) << endl ;
+    }
     
-    cout << "El area del Triangulo es: " << area << endl;
-
     return 0;
 }
