@@ -1,23 +1,26 @@
 #include <iostream>
-#include <cmath> 
 
 using namespace std;
 
-int main() {
-    double cateto1, cateto2, hipotenusa;
+int main(){
+    double horasTrabajadas, valorHora, res;
 
-   
-    cout << "Ingresa el valor del primer cateto: ";
-    cin >> cateto1;
+    cout << "Ingrese el valor de horas trabajas en la semana: ";
+    cin >> horasTrabajadas;
 
-    cout << "Ingresa el valor del segundo cateto: ";
-    cin >> cateto2;
 
-   
-    hipotenusa = sqrt(cateto1 * cateto1 + cateto2 * cateto2);
+    cout << "Ingrese el valor de la hora de trabajo: ";
+    cin >> valorHora;
 
+
+    if(horasTrabajadas <= 40) {
+        res = horasTrabajadas * valorHora;
+        cout << res << endl;
+    } else {
+        double suma = (horasTrabajadas - 40) * 1.7 * valorHora;
+        res = suma + (40 * valorHora);
+        cout << res << endl;
+    }
     
-    cout << "La longitud de la hipotenusa es: " << hipotenusa << endl;
-
     return 0;
 }
