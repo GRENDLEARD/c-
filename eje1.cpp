@@ -1,22 +1,25 @@
-include <iostream>
+#include <iostream>
 
 int main() {
-    int numero, suma = 0;
+    double base, resultado = 1;
+    int exponente;
 
-    std::cout << "Por favor ingrese un número entero: ";
-    std::cin >> numero;
+    std::cout << "Ingrese la base: ";
+    std::cin >> base;
 
-    // Asegurarse de que el número sea positivo
-    if (numero < 0) {
-        numero = -numero;
+    std::cout << "Ingrese el exponente (entero positivo): ";
+    std::cin >> exponente;
+
+    if (exponente < 0) {
+        std::cout << "El exponente debe ser un entero positivo." << std::endl;
+        return 1; // Salir del programa con un código de error
     }
 
-    while (numero > 0) {
-        suma += numero % 10; // Obtener el último dígito y sumarlo
-        numero /= 10; // Eliminar el último dígito
+    for (int i = 0; i < exponente; i++) {
+        resultado *= base; // Multiplicar la base por sí misma 'exponente' veces
     }
 
-    std::cout << "La suma de los dígitos es: " << suma << std::endl;
+    std::cout << "El resultado de " << base << " elevado a la " << exponente << " es: " << resultado << std::endl;
 
     return 0;
 }
