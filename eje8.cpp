@@ -2,21 +2,23 @@
 
 using namespace std;
 
-int main() {
-    double notaTeoria, notaPracticas, notaProblemas,calificacionFinal ;
+int main()
+{
+    int numero, suma;
 
-    cout << "Ingrese la nota de teoría: ";
-    cin >> notaTeoria;
 
-    cout << "Ingrese la nota de prácticas: ";
-    cin >> notaPracticas;
+        while(true) {
+            cout << "ingrese un numero: " ;
+            cin >> numero;
 
-    cout << "Ingrese la nota de problemas: ";
-    cin >> notaProblemas;
+            if(!numero == 0) {
+                suma = numero + suma;
 
-    calificacionFinal = (notaTeoria * 0.3) + (notaPracticas * 0.3) + (notaProblemas * 0.4);
-
-    cout << "La calificación final es: " << calificacionFinal <<endl;
-
+            } else {
+                cout << suma << endl;
+                break;
+            }
+        }
+    
     return 0;
 }
