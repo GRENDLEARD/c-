@@ -1,26 +1,22 @@
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
+include <iostream>
 
 int main() {
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
-    int numeroAleatorio = std::rand() % 100 + 1;
-    int intentoUsuario, intentos = 0;
+    int numero, suma = 0;
 
-    std::cout << "Adivina el número (entre 1 y 100): ";
+    std::cout << "Por favor ingrese un número entero: ";
+    std::cin >> numero;
 
-    do {
-        std::cin >> intentoUsuario;
-        intentos++;
+    // Asegurarse de que el número sea positivo
+    if (numero < 0) {
+        numero = -numero;
+    }
 
-        if (intentoUsuario < numeroAleatorio) {
-            std::cout << "El número es mayor. Intenta de nuevo: ";
-        } else if (intentoUsuario > numeroAleatorio) {
-            std::cout << "El número es menor. Intenta de nuevo: ";
-        }
-    } while (intentoUsuario != numeroAleatorio);
+    while (numero > 0) {
+        suma += numero % 10; // Obtener el último dígito y sumarlo
+        numero /= 10; // Eliminar el último dígito
+    }
 
-    std::cout << "¡Felicidades! Adivinaste el número en " << intentos << " intentos." << std::endl;
+    std::cout << "La suma de los dígitos es: " << suma << std::endl;
 
     return 0;
 }
