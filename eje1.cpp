@@ -1,35 +1,24 @@
 #include <iostream>
 
-using namespace std;
+int main() {
+    int numero;
+    int contador = 0;
 
+    std::cout << "Por favor ingrese un número entero: ";
+    std::cin >> numero;
 
-int main()
-{   
-    int numero1 , numero2, numero3, numero4;
-
-    cout << "ingrese el primer numero: ";
-    cin >> numero1;
-
-    cout << "ingrese el segundo numero: ";
-    cin >> numero2;
-    cout << "ingrese el tercero numero: ";
-    cin >> numero3;
-    cout << "ingrese cuarto numero: ";
-    cin >> numero4;
-
-    if (numero1 > numero2 && numero1 > numero3 && numero1 > numero4){
-        cout<< "el numero mayor es: " << numero1;
-    } else if(numero2 > numero1 && numero2 > numero3 && numero2 > numero4) {
-        cout<< "el numero mayor es: " << numero2;
-    } else if (numero3 > numero1 && numero3 > numero2 && numero3 > numero4) {
-        cout<< "el numero mayor es: " << numero3;
-    } else {
-        cout<< "el numero mayor es: " << numero4;
-
+    // Manejo de números negativos
+    if (numero < 0) {
+        numero = -numero;
     }
-    
 
+    // Contar los dígitos utilizando un bucle
+    do {
+        numero /= 10;
+        contador++;
+    } while (numero != 0);
 
-    
+    std::cout << "La cantidad de dígitos en el número es: " << contador << std::endl;
+
     return 0;
 }
