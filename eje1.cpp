@@ -1,24 +1,26 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 int main() {
-    int numero;
-    int contador = 0;
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    int numeroAleatorio = std::rand() % 100 + 1;
+    int intentoUsuario, intentos = 0;
 
-    std::cout << "Por favor ingrese un número entero: ";
-    std::cin >> numero;
+    std::cout << "Adivina el número (entre 1 y 100): ";
 
-    // Manejo de números negativos
-    if (numero < 0) {
-        numero = -numero;
-    }
-
-    // Contar los dígitos utilizando un bucle
     do {
-        numero /= 10;
-        contador++;
-    } while (numero != 0);
+        std::cin >> intentoUsuario;
+        intentos++;
 
-    std::cout << "La cantidad de dígitos en el número es: " << contador << std::endl;
+        if (intentoUsuario < numeroAleatorio) {
+            std::cout << "El número es mayor. Intenta de nuevo: ";
+        } else if (intentoUsuario > numeroAleatorio) {
+            std::cout << "El número es menor. Intenta de nuevo: ";
+        }
+    } while (intentoUsuario != numeroAleatorio);
+
+    std::cout << "¡Felicidades! Adivinaste el número en " << intentos << " intentos." << std::endl;
 
     return 0;
 }
