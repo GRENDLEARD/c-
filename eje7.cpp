@@ -1,33 +1,29 @@
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
 int main() {
-    double a, b, c,discriminante,solucion1,solucion2,solucion;
+    int numero;
+    bool esPrimo = true;
 
-    cout << "Ingrese el valor de a: ";
-    cin >> a;
+    cout << "Ingrese un numero entero positivo: ";
+    cin >> numero;
 
-    cout << "Ingrese el valor de b: ";
-    cin >> b;
-
-    cout << "Ingrese el valor de c: ";
-    cin >> c;
-
-    discriminante = b * b - 4 * a * c;
-
-    if (discriminante > 0) {
-        solucion1 = (-b + sqrt(discriminante)) / (2 * a);
-        solucion2 = (-b - sqrt(discriminante)) / (2 * a);
-
-        cout << "Las soluciones son: " << solucion1 << " y " << solucion2 << endl;
-    } else if (discriminante == 0) {
-        solucion = -b / (2 * a);
-
-        cout << "La única solución es: " << solucion << endl;
+    if (numero <= 1) {
+        esPrimo = false;  // Si el número es 0 o 1, no es primo
     } else {
-        cout << "La ecuación no tiene soluciones reales." << endl;
+        for (int i = 2; i * i <= numero; i++) {
+            if (numero % i == 0) {
+                esPrimo = false;  // Si encuentra un divisor, no es primo
+                break;  // Salir del bucle
+            }
+        }
+    }
+
+    if (esPrimo) {
+        cout << numero << " es un numero primo." << endl;
+    } else {
+        cout << numero << " no es un numero primo." << endl;
     }
 
     return 0;
