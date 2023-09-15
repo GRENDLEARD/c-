@@ -11,9 +11,9 @@ int main() {
         std::cin >> telefonos[i];
     }
 
-    // Pide al usuario que elija un número de integrante para buscar
-    int numeroIntegrante;
-    std::cout << "Ingresa el número de integrante que deseas buscar (1-5): ";
+    // Pide al usuario que ingrese el número del integrante que desea buscar (como un número largo)
+    long numeroIntegrante;
+    std::cout << "Ingresa el número del integrante que deseas buscar (1-5): ";
     std::cin >> numeroIntegrante;
 
     // Verifica que el número de integrante esté en el rango válido
