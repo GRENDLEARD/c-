@@ -24,5 +24,16 @@ int main() {
         std::cout << "Número de integrante no válido. Debe estar en el rango 1-5." << std::endl;
     }
 
+    // Encuentra el número telefónico con el valor máximo
+    std::string numeroMaximo = telefonos[0];
+    for (int i = 1; i < 5; i++) {
+        if (telefonos[i] > numeroMaximo) {
+            numeroMaximo = telefonos[i];
+        }
+    }
+
+    // Imprime el número telefónico con el valor máximo
+    std::cout << "Número telefónico con el mayor valor: " << numeroMaximo << std::endl;
+
     return 0;
 }
