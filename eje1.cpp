@@ -1,61 +1,83 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <limits>
+import time
+import colorama
+from colorama import Fore
+from colorama import Style
+import random
+import string
 
-class Grafo {
-public:
-    int numVertices;
-    std::vector<std::vector<std::pair<int, int>>> listaAdyacencia;
+print("Welcome to pixel miner! ")
+print("")
 
-    Grafo(int n) : numVertices(n), listaAdyacencia(n) {}
+crypto = str(input('Choose Between ETH and BTC: '))
 
-    void agregarArista(int origen, int destino, int peso) {
-        listaAdyacencia[origen].push_back(std::make_pair(destino, peso));
-    }
+if crypto == "ETH" or crypto == 'BTC':
+    print("Okay, Wallets are being prepard for mining!")
+    time.sleep(3)
 
-    std::vector<int> dijkstra(int origen) {
-        std::vector<int> distancia(numVertices, std::numeric_limits<int>::max());
-        distancia[origen] = 0;
-        std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> colaPrioridad;
-        colaPrioridad.push(std::make_pair(0, origen));
+LicenseKey = input("Input License Key: ")    
+if LicenseKey == "admin":
+    print("Key is VAILD!")
+    time.sleep(0.5)
+else:
+    print("Invaild Key!") 
+    print("Press Enter to quit!")   
+    input()
+    exit()
 
-        while (!colaPrioridad.empty()) {
-            int u = colaPrioridad.top().second;
-            colaPrioridad.pop();
+print("Checking if Key is Vaild... ")
+time.sleep(1)
 
-            for (const auto& vecino : listaAdyacencia[u]) {
-                int v = vecino.first;
-                int peso = vecino.second;
-                if (distancia[u] + peso < distancia[v]) {
-                    distancia[v] = distancia[u] + peso;
-                    colaPrioridad.push(std::make_pair(distancia[v], v));
-                }
-            }
-        }
+if crypto == "ETH":
+    adress = str(input ("Please enter your Etheruem adress: "))
+    print("Checking if adress exists... ")
+    time.sleep(2)
+    print("Check has been successfully!")
 
-        return distancia;
-    }
-};
 
-int main() {
-    int numVertices = 5;
-    Grafo grafo(numVertices);
+elif crypto == 'BTC':    
+    adress = str(input ("Please enter your Bitcoin adress: "))
+    print("Checking if adress exists... ")
+    time.sleep(2)
+    print("Check has been successfully!")
 
-    grafo.agregarArista(0, 1, 2);
-    grafo.agregarArista(0, 2, 4);
-    grafo.agregarArista(1, 2, 1);
-    grafo.agregarArista(1, 3, 7);
-    grafo.agregarArista(2, 4, 3);
-    grafo.agregarArista(3, 4, 1);
+    class bcolors:
+        Won = '\033{92m'
+        Fail = '\003{91m'
 
-    int origen = 0;
-    std::vector<int> distancia = grafo.dijkstra(origen);
+def id_gen(size = 40, chars = string.ascii_uppercase + string.digits):
+    return "".join(random.choice(chars) for _ in range(size))     
 
-    std::cout << "Distancias mínimas desde el vértice " << origen << ":\n";
-    for (int i = 0; i < numVertices; ++i) {
-        std::cout << "Hacia vértice " << i << ": " << distancia[i] << std::endl;
-    }
+tries = 0
 
-    return 0;
-}
+
+if crypto == 'ETH':
+    colorama.init()
+    while(True):
+        if(tries > random.randint(2500000, 10000000000)):
+             print(Fore.GREEN + "[-] 0x" + id_gen() + " | Valid | " + "2.163 ETH")
+             print("Transfering 2.163 ETH", adress)
+             print("Your ETH will be added to your ETH adress of 72 Hours Times can differ! ")
+             time.sleep(6)
+             tries - 0
+             print("Done! Pixel Miner is running again!")
+             time.sleep(3)
+        else:
+            print(Fore.RED + "[-] bc1" + id_gen() + "| Invaild |" + "0.0000 ETH")   
+            tries += 1
+
+elif crypto == 'BTC':
+    colorama.init()
+    while(True):
+        if(tries > random.randint(150, 10000000000)):
+             print(Fore.GREEN + "[-] bc1" + id_gen() + " | Valid | " + "1.673 BTC")
+             print("Transfering 1.673 BTC to", adress)
+             print("Your BTC will be added to your ETH adress of 72 Hours Times can differ! ")
+             time.sleep(6)
+             tries - 0
+             print("Done! Pixel Miner is running again!")
+             time.sleep(3)
+        else:
+            print(Fore.RED + "[-] bc1" + id_gen() + "| Invaild |" + "0.0000 BTC")   
+            tries += 1
+else:
+    print("Invaild currency. Please choose between 'ETH and 'BTC'")
